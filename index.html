@@ -1,1 +1,1894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Hocking Hills Property Pros | Local Help for Land, Cabins, Driveways & Builds</title>
+
+  <meta
+    name="description"
+    content="Hocking Hills Property Pros helps landowners, cabin owners, owner-builders, and homeowners find trusted local pros for rural property projects, septic, concrete, driveways, excavation, maintenance, and more."
+  />
+
+  <style>
+    :root {
+      --forest: #183a2d;
+      --forest-2: #23523f;
+      --moss: #6d7f45;
+      --tan: #eadfc9;
+      --sand: #f7f1e5;
+      --cream: #fffaf1;
+      --brown: #7a5735;
+      --gold: #d7a94f;
+      --charcoal: #1f2522;
+      --muted: #66706a;
+      --line: rgba(31, 37, 34, 0.14);
+      --card: #ffffff;
+      --shadow: 0 18px 45px rgba(17, 30, 23, 0.15);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--charcoal);
+      background:
+        radial-gradient(circle at top left, rgba(215, 169, 79, 0.18), transparent 34rem),
+        linear-gradient(180deg, var(--cream), var(--sand));
+      line-height: 1.55;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 250, 241, 0.86);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--forest);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(24, 58, 45, 0.95), rgba(109, 127, 69, 0.95)),
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.4), transparent 25px);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(24, 58, 45, 0.25);
+    }
+
+    .brand small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: -4px;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-weight: 700;
+      color: #34403a;
+      font-size: 0.95rem;
+    }
+
+    .navlinks a {
+      opacity: 0.88;
+    }
+
+    .navlinks a:hover {
+      opacity: 1;
+      color: var(--forest);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: white;
+      box-shadow: 0 14px 28px rgba(24, 58, 45, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-2);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.82);
+      border-color: var(--line);
+      color: var(--forest);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      transform: translateY(-1px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #2b2112;
+      box-shadow: 0 14px 28px rgba(215, 169, 79, 0.25);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 54px;
+      background:
+        linear-gradient(135deg, rgba(24, 58, 45, 0.94), rgba(35, 82, 63, 0.86)),
+        url("hero-property.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 130px;
+      background: linear-gradient(180deg, transparent, var(--cream));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.11);
+      backdrop-filter: blur(8px);
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(215, 169, 79, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+    }
+
+    .hero p {
+      font-size: 1.14rem;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 640px;
+      margin: 24px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .hero-pills span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .match-card {
+      background: rgba(255, 250, 241, 0.94);
+      color: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .match-card h2 {
+      margin: 0 0 8px;
+      color: var(--forest);
+      letter-spacing: -0.04em;
+      font-size: 1.55rem;
+    }
+
+    .match-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 0 0 18px;
+    }
+
+    .mini-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      border-radius: 13px;
+      padding: 13px 13px;
+      font: inherit;
+      color: var(--charcoal);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(24, 58, 45, 0.45);
+      box-shadow: 0 0 0 4px rgba(24, 58, 45, 0.08);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    label {
+      display: block;
+      font-weight: 800;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #2f3d35;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--brown);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--forest);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 12px 0 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card,
+    .info-card,
+    .profile-card,
+    .tier-card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(24, 58, 45, 0.07);
+    }
+
+    .category-card {
+      padding: 20px;
+      min-height: 156px;
+      transition: 0.18s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(24, 58, 45, 0.08);
+      color: var(--forest);
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+    }
+
+    .category-card h3,
+    .info-card h3,
+    .profile-card h3,
+    .tier-card h3 {
+      margin: 0 0 8px;
+      color: var(--forest);
+      letter-spacing: -0.03em;
+    }
+
+    .category-card p,
+    .info-card p,
+    .profile-card p,
+    .tier-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .info-card {
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--forest);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 12px 30px rgba(24, 58, 45, 0.07);
+    }
+
+    .panel.dark {
+      background: linear-gradient(135deg, var(--forest), var(--forest-2));
+      color: white;
+      border: none;
+    }
+
+    .panel.dark h2,
+    .panel.dark h3 {
+      color: white;
+    }
+
+    .panel.dark p,
+    .panel.dark .note {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .full-form {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .checklist li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .profile-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-media {
+      min-height: 170px;
+      background:
+        linear-gradient(135deg, rgba(24,58,45,0.82), rgba(109,127,69,0.82)),
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.45), transparent 90px);
+      display: grid;
+      place-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .play {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin: 0 auto 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge.featured {
+      color: #2b2112;
+      background: rgba(215, 169, 79, 0.95);
+    }
+
+    .badge.pro {
+      background: rgba(24, 58, 45, 0.09);
+      color: var(--forest);
+    }
+
+    .badge.basic {
+      background: rgba(102, 112, 106, 0.12);
+      color: #4d5752;
+    }
+
+    .badge.new {
+      color: white;
+      background: var(--forest);
+    }
+
+    .profile-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      flex: 1;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .service-tags span {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(24, 58, 45, 0.07);
+      color: var(--forest);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .profile-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .directory-tools {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.7fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .directory-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .directory-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .directory-item h3 {
+      margin: 0 0 6px;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+    }
+
+    .directory-meta {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .tier-card {
+      padding: 22px;
+      position: relative;
+    }
+
+    .tier-card.highlight {
+      border-color: rgba(215, 169, 79, 0.7);
+      box-shadow: var(--shadow);
+    }
+
+    .price {
+      font-size: 1.9rem;
+      line-height: 1;
+      margin: 16px 0 6px;
+      letter-spacing: -0.05em;
+      color: var(--forest);
+      font-weight: 900;
+    }
+
+    .price small {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .tier-card ul {
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .tier-card li::before {
+      content: "✓ ";
+      color: var(--forest);
+      font-weight: 900;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--forest);
+    }
+
+    details p {
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    .cta {
+      padding: 62px 0;
+      background:
+        linear-gradient(135deg, rgba(24, 58, 45, 0.96), rgba(35, 82, 63, 0.92));
+      color: white;
+    }
+
+    .cta h2 {
+      color: white;
+    }
+
+    .cta .lead {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    footer {
+      padding: 32px 0;
+      color: rgba(255,255,255,0.72);
+      background: #17251e;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .disclaimer {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      max-width: 920px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.58);
+    }
+
+    .result-box {
+      display: none;
+      margin-top: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(24, 58, 45, 0.2);
+      background: rgba(24, 58, 45, 0.06);
+      padding: 18px;
+    }
+
+    .result-box.show {
+      display: block;
+    }
+
+    .result-box h3 {
+      margin: 0 0 8px;
+      color: var(--forest);
+    }
+
+    .match-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .match-mini {
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      border-radius: 12px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4,
+      .steps,
+      .tiers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .directory-tools {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .hero {
+        padding: 54px 0 40px;
+      }
+
+      .form-row,
+      .grid-4,
+      .steps,
+      .profile-grid,
+      .tiers,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .directory-item {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Hocking Hills Property Pros home">
+        <span class="brand-mark">HH</span>
+        <span>
+          Hocking Hills Property Pros
+          <small>Local property project network</small>
+        </span>
+      </a>
+
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#match">Get Matched</a>
+        <a href="#directory">Directory</a>
+        <a href="#partners">For Contractors</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#match">Start Project Match</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Founding network now forming</div>
+          <h1>Find the right local pro for your property project.</h1>
+          <p>
+            Hocking Hills Property Pros helps landowners, cabin owners, owner-builders,
+            and homeowners get matched with local pros for driveways, septic, concrete,
+            excavation, cabins, land clearing, maintenance, and rural builds.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#match">Get a custom lineup</a>
+            <a class="btn btn-secondary" href="#directory">Browse local pros</a>
+          </div>
+
+          <div class="hero-pills" aria-label="Service categories">
+            <span>Driveways</span>
+            <span>Septic</span>
+            <span>Concrete</span>
+            <span>Excavation</span>
+            <span>Cabins</span>
+            <span>Maintenance</span>
+          </div>
+        </div>
+
+        <aside class="match-card" aria-label="Project match summary card">
+          <h2>Custom contractor lineup within 24 hours.</h2>
+          <p>
+            Tell us what you are building, fixing, or improving. We’ll review your project
+            and recommend a local pro or a small lineup of trades that fit your needs.
+          </p>
+
+          <form class="mini-form" action="#match">
+            <select aria-label="Choose project type">
+              <option>What do you need help with?</option>
+              <option>Gravel driveway or access</option>
+              <option>Septic system</option>
+              <option>Concrete slab or foundation</option>
+              <option>Excavation or site prep</option>
+              <option>Cabin or garage build</option>
+              <option>Cabin/property maintenance</option>
+            </select>
+            <a class="btn btn-primary" href="#match">Start the match form</a>
+            <div class="note">
+              We do not blast your project to a dozen contractors. Fit first, visibility second.
+            </div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">What we help with</div>
+            <h2>Built around real property needs.</h2>
+            <p class="lead">
+              Start narrow with rural land, cabins, driveways, garages, septic, and site work —
+              but broad enough to include trusted maintenance and home service pros over time.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <a class="category-card" href="#match" data-project-shortcut="driveway">
+            <div class="icon">🛻</div>
+            <h3>Driveways & Gravel</h3>
+            <p>Gravel delivery, tailgating, grading, washout repair, access roads, and culverts.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="septic">
+            <div class="icon">🚜</div>
+            <h3>Septic & Site Work</h3>
+            <p>Septic installers, excavation, trenching, rough grading, and rural build prep.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="concrete">
+            <div class="icon">⬛</div>
+            <h3>Concrete & Slabs</h3>
+            <p>Garage slabs, aprons, patios, foundations, flatwork, and concrete prep.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="garage">
+            <div class="icon">🏗️</div>
+            <h3>Garages & Cabins</h3>
+            <p>Owner-builder lineups for pole barns, cabins, living space, utilities, and finish trades.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="clearing">
+            <div class="icon">🌲</div>
+            <h3>Land Clearing</h3>
+            <p>Tree work, forestry mulching, brush clearing, cleanup, and property access.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="drainage">
+            <div class="icon">💧</div>
+            <h3>Drainage & Culverts</h3>
+            <p>Ditching, driveway drainage, water management, culvert repair, and erosion fixes.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="maintenance">
+            <div class="icon">🧰</div>
+            <h3>Cabin Maintenance</h3>
+            <p>Cleaners, hot tub service, firewood, mowing, handyman, snow removal, and repairs.</p>
+          </a>
+
+          <a class="category-card" href="#match" data-project-shortcut="home">
+            <div class="icon">🏠</div>
+            <h3>Home Services</h3>
+            <p>Electricians, plumbers, HVAC, insulation, drywall, remodeling, and repairs.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">How it works</div>
+            <h2>Simple for property owners. Better for contractors.</h2>
+            <p class="lead">
+              Instead of sending one lead to five contractors, we review the project and recommend
+              the best-fit local pro or a small project lineup.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="info-card">
+            <div class="step-number">1</div>
+            <h3>Submit your project</h3>
+            <p>Describe what you need, where the property is, your timeline, and any photos or notes.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="step-number">2</div>
+            <h3>We review the fit</h3>
+            <p>We compare your project with local provider categories, service areas, specialties, and availability.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="step-number">3</div>
+            <h3>You get a lineup</h3>
+            <p>For simple jobs, we suggest one best-fit pro. For larger projects, we suggest a trade lineup.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="step-number">4</div>
+            <h3>You hire directly</h3>
+            <p>You choose who to contact, request quotes, verify credentials, and contract directly with the provider.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="match">
+      <div class="container split">
+        <div class="panel dark">
+          <div class="section-kicker">Project Match</div>
+          <h2>Tell us what you need. We’ll send a custom local contractor lineup.</h2>
+          <p class="lead">
+            This first version is intentionally hands-on. We review requests manually so the recommendations
+            feel local, thoughtful, and useful.
+          </p>
+
+          <ul class="checklist">
+            <li>One best-fit contractor for simple jobs</li>
+            <li>Multi-trade lineup for larger projects</li>
+            <li>Good for owner-builders and rural property owners</li>
+            <li>No lead blasting to a dozen companies</li>
+            <li>Featured partners are clearly labeled</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="section-kicker">Start here</div>
+          <h2>Project intake form</h2>
+          <p class="lead">
+            Replace the email address in the code with your own. Later, connect this form to Formspree,
+            Netlify Forms, Airtable, or a custom backend.
+          </p>
+
+          <form id="matchForm" class="full-form">
+            <div class="form-row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="Best phone number" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div>
+                <label for="location">Property location</label>
+                <input id="location" name="location" type="text" placeholder="Nearest town or county" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="projectType">Project type</label>
+                <select id="projectType" name="projectType" required>
+                  <option value="">Choose one</option>
+                  <option value="driveway">Driveway / gravel / access</option>
+                  <option value="septic">Septic / site work</option>
+                  <option value="concrete">Concrete / slab / foundation</option>
+                  <option value="excavation">Excavation / grading</option>
+                  <option value="drainage">Drainage / culvert</option>
+                  <option value="clearing">Tree / brush / land clearing</option>
+                  <option value="garage">Garage / cabin / owner-builder project</option>
+                  <option value="maintenance">Cabin / property maintenance</option>
+                  <option value="home">Home service / repair</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="matchType">What kind of help do you want?</label>
+                <select id="matchType" name="matchType" required>
+                  <option value="">Choose one</option>
+                  <option value="single">One best-fit contractor</option>
+                  <option value="lineup">A project lineup with multiple trades</option>
+                  <option value="planning">Planning guidance before I call anyone</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Choose one</option>
+                  <option>ASAP</option>
+                  <option>Within 2 weeks</option>
+                  <option>Within 1-2 months</option>
+                  <option>Planning for later</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="budget">Budget range</label>
+                <select id="budget" name="budget">
+                  <option value="">Optional</option>
+                  <option>Under $1,000</option>
+                  <option>$1,000 - $5,000</option>
+                  <option>$5,000 - $15,000</option>
+                  <option>$15,000 - $50,000</option>
+                  <option>$50,000+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="description">Project description</label>
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Describe what you are trying to build, fix, improve, or figure out. Include details like driveway length, garage size, septic status, site access, slope, photos available, or anything else helpful."
+                required
+              ></textarea>
+            </div>
+
+            <label>
+              <input type="checkbox" name="permission" required style="width:auto; margin-right:8px;" />
+              I agree that Hocking Hills Property Pros may review my request and share relevant project details with matched local providers.
+            </label>
+
+            <button class="btn btn-primary" type="submit">Preview my match request</button>
+
+            <div class="note">
+              Hocking Hills Property Pros is a matching and information service. Property owners hire and contract directly with providers.
+            </div>
+          </form>
+
+          <div id="matchResult" class="result-box" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Founding local partners</div>
+            <h2>Featured profiles get more trust, context, and visibility.</h2>
+            <p class="lead">
+              These sample cards show the structure. Swap in real businesses as you recruit founding partners.
+              Paid or barter partners should be clearly labeled.
+            </p>
+          </div>
+        </div>
+
+        <div id="featuredProfiles" class="profile-grid"></div>
+      </div>
+    </section>
+
+    <section id="directory">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Searchable index</div>
+            <h2>Browse the local property pro directory.</h2>
+            <p class="lead">
+              The full directory keeps the site useful and fair. Featured partners get better presentation,
+              but users can still search the broader index.
+            </p>
+          </div>
+        </div>
+
+        <div class="directory-tools">
+          <input id="directorySearch" type="search" placeholder="Search by name, service, town, or keyword" />
+
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+            <option value="driveway">Driveways & gravel</option>
+            <option value="septic">Septic</option>
+            <option value="concrete">Concrete</option>
+            <option value="excavation">Excavation</option>
+            <option value="drainage">Drainage</option>
+            <option value="clearing">Land clearing</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="home">Home services</option>
+          </select>
+
+          <select id="tierFilter">
+            <option value="all">All profile levels</option>
+            <option value="spotlight">Category Spotlight</option>
+            <option value="featured">Featured Partner</option>
+            <option value="pro">Pro Profile</option>
+            <option value="basic">Basic Listing</option>
+          </select>
+        </div>
+
+        <div id="directoryList" class="directory-list"></div>
+      </div>
+    </section>
+
+    <section id="partners">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">For local contractors & service providers</div>
+            <h2>Join the founding network.</h2>
+            <p class="lead">
+              Hocking Hills Property Pros is designed as a local alternative to expensive, generic lead platforms.
+              The goal is better profiles, better project fit, and less lead-blasting.
+            </p>
+          </div>
+        </div>
+
+        <div class="tiers">
+          <div class="tier-card">
+            <div class="badge basic">Basic</div>
+            <h3>Local Listing</h3>
+            <p>For providers who want to be included in the searchable index.</p>
+            <div class="price">Free <small>/ starting tier</small></div>
+            <ul>
+              <li>Business name and category</li>
+              <li>Basic service area</li>
+              <li>Basic directory listing</li>
+              <li>Eligible for manual matching</li>
+              <li>Provider-managed info</li>
+            </ul>
+          </div>
+
+          <div class="tier-card">
+            <div class="badge pro">Pro</div>
+            <h3>Verified Profile</h3>
+            <p>For providers who want a stronger profile and better customer trust.</p>
+            <div class="price">$49–$150 <small>/ month</small></div>
+            <ul>
+              <li>Expanded profile page</li>
+              <li>Photos and service details</li>
+              <li>Service area and project types</li>
+              <li>Verification notes</li>
+              <li>Better profile completeness</li>
+            </ul>
+          </div>
+
+          <div class="tier-card highlight">
+            <div class="badge featured">Featured</div>
+            <h3>Featured Local Partner</h3>
+            <p>The main visibility package for serious founding partners.</p>
+            <div class="price">$200–$500 <small>/ month or trade value</small></div>
+            <ul>
+              <li>Video profile</li>
+              <li>Featured category placement</li>
+              <li>Project case study</li>
+              <li>Lead routing and reporting</li>
+              <li>Social content features</li>
+            </ul>
+          </div>
+
+          <div class="tier-card">
+            <div class="badge new">Spotlight</div>
+            <h3>Category Spotlight</h3>
+            <p>Premium exposure for one or two providers in a category.</p>
+            <div class="price">$500+ <small>/ month or trade value</small></div>
+            <ul>
+              <li>Top category visibility</li>
+              <li>Homepage rotation</li>
+              <li>Priority ad inclusion</li>
+              <li>Sponsored videos/articles</li>
+              <li>Limited category availability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="split" style="margin-top: 26px;">
+          <div class="panel">
+            <div class="section-kicker">Founding partner pitch</div>
+            <h2>Not just a listing.</h2>
+            <p class="lead">
+              The founding partner package can include a profile, video, photos, website help,
+              local service pages, project case studies, and inclusion in the match system.
+            </p>
+            <p class="muted">
+              For barter partners, assign a fair dollar value to the package and trade it against defined work credit.
+              Example: video/profile setup valued at $1,500 in exchange for $1,500 of driveway, septic, concrete,
+              grading, or maintenance work.
+            </p>
+          </div>
+
+          <div class="panel">
+            <div class="section-kicker">Contractor signup</div>
+            <h2>Request a founding profile.</h2>
+
+            <form id="partnerForm" class="full-form">
+              <div class="form-row">
+                <div>
+                  <label for="businessName">Business name</label>
+                  <input id="businessName" name="businessName" type="text" placeholder="Business name" required />
+                </div>
+
+                <div>
+                  <label for="ownerName">Contact name</label>
+                  <input id="ownerName" name="ownerName" type="text" placeholder="Owner or contact" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label for="partnerPhone">Phone</label>
+                  <input id="partnerPhone" name="partnerPhone" type="tel" placeholder="Best phone" />
+                </div>
+
+                <div>
+                  <label for="partnerEmail">Email</label>
+                  <input id="partnerEmail" name="partnerEmail" type="email" placeholder="Email address" required />
+                </div>
+              </div>
+
+              <div>
+                <label for="partnerServices">Services offered</label>
+                <textarea id="partnerServices" name="partnerServices" placeholder="Tell us what services you offer, counties served, project types you prefer, and whether you are interested in a free, pro, featured, or trade-credit profile." required></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Preview contractor signup</button>
+            </form>
+
+            <div id="partnerResult" class="result-box" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guides">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Future SEO content</div>
+            <h2>Build traffic with helpful local guides.</h2>
+            <p class="lead">
+              These articles can become the pages that rank in Google and feed the match form.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <article class="info-card">
+            <h3>How to prepare land for a garage build</h3>
+            <p>Site access, driveway, septic, concrete, utilities, drainage, and contractor sequencing.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>What to know before installing septic</h3>
+            <p>Questions to ask, what to prepare, and how to avoid wasting time before quotes.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>Gravel driveway repair checklist</h3>
+            <p>Washouts, crown, base stone, drainage, culverts, and when to call a pro.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>Cabin maintenance provider checklist</h3>
+            <p>Cleaners, hot tubs, firewood, mowing, pest control, handyman work, and seasonal prep.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Questions</div>
+            <h2>How this stays useful and fair.</h2>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <details open>
+            <summary>Do featured partners pay for placement?</summary>
+            <p>
+              Some providers may be Featured Local Partners and receive enhanced placement, video profiles,
+              case studies, and promotional visibility. The matching process should still prioritize project fit.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you sell my lead to multiple contractors?</summary>
+            <p>
+              The goal is not to blast a project to a dozen companies. Simple projects may receive one best-fit
+              recommendation and a backup. Larger projects may receive a small lineup of relevant trades.
+            </p>
+          </details>
+
+          <details>
+            <summary>Are you acting as the general contractor?</summary>
+            <p>
+              No. Hocking Hills Property Pros provides information, directory listings, and match recommendations.
+              Property owners choose, verify, hire, and contract directly with service providers.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can contractors join for free?</summary>
+            <p>
+              Yes. A basic listing can be free to help build a complete local index. Pro and Featured profiles provide
+              better presentation, more visibility, and promotional options.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container section-head">
+        <div>
+          <div class="section-kicker" style="color: var(--gold);">Ready to test the idea?</div>
+          <h2>Start with one page, one form, and a few founding partners.</h2>
+          <p class="lead">
+            Use this as the first public version. Then add real contractor profiles, photos, videos,
+            and project guide pages as the network grows.
+          </p>
+        </div>
+
+        <a class="btn btn-gold" href="#match">Start Project Match</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Hocking Hills Property Pros</strong><br />
+        Local help for land, cabins, driveways, builds, and property projects.
+      </div>
+
+      <div>
+        <a href="#match">Get Matched</a> ·
+        <a href="#directory">Directory</a> ·
+        <a href="#partners">For Contractors</a>
+      </div>
+
+      <div class="disclaimer">
+        Hocking Hills Property Pros is a local directory and matching service. We are not a general contractor,
+        construction manager, inspector, attorney, insurer, or permitting authority. Users should verify licenses,
+        registrations, insurance, references, permits, pricing, and contract terms directly with any provider.
+        Some providers may pay for enhanced profiles, featured placement, advertising, or promotional visibility.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      Hocking Hills Property Pros starter site
+      --------------------------------------------------
+      Replace CONFIG.notificationEmail with your email.
+      If you later connect Formspree/Netlify/Airtable, add the endpoint in CONFIG.formEndpoint.
+    */
+
+    const CONFIG = {
+      notificationEmail: "your-email@example.com",
+      formEndpoint: ""
+    };
+
+    const contractors = [
+      {
+        name: "McLeod Driveway & Gravel",
+        tier: "featured",
+        city: "Logan / Hocking County",
+        services: ["driveway", "gravel", "drainage", "culvert"],
+        serviceLabels: ["Gravel", "Driveway Repair", "Tailgating", "Drainage"],
+        bestFor: "Gravel driveway refreshes, tailgating, rural access work, and small drainage fixes.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: true,
+        accepting: true,
+        verifiedNote: "Founding partner profile example"
+      },
+      {
+        name: "Sample Septic & Site Work Partner",
+        tier: "spotlight",
+        city: "Hocking County",
+        services: ["septic", "excavation", "site prep", "drainage"],
+        serviceLabels: ["Septic", "Site Prep", "Excavation", "Drainage"],
+        bestFor: "New rural builds, septic-related excavation, trenching, and building pad prep.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: false,
+        accepting: true,
+        verifiedNote: "Replace with registered local provider"
+      },
+      {
+        name: "Sample Concrete Crew",
+        tier: "featured",
+        city: "Logan / Surrounding Counties",
+        services: ["concrete", "garage", "foundation", "driveway"],
+        serviceLabels: ["Garage Slabs", "Flatwork", "Aprons", "Foundations"],
+        bestFor: "Garage slabs, concrete aprons, patios, and small foundation projects.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: false,
+        accepting: true,
+        verifiedNote: "Featured profile placeholder"
+      },
+      {
+        name: "Sample Excavation & Grading",
+        tier: "pro",
+        city: "Hocking / Vinton / Fairfield",
+        services: ["excavation", "site prep", "clearing", "drainage", "driveway"],
+        serviceLabels: ["Excavation", "Grading", "Site Prep", "Driveways"],
+        bestFor: "Building pads, drainage, rough grading, driveway shaping, and land projects.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: false,
+        accepting: true,
+        verifiedNote: "Pro profile example"
+      },
+      {
+        name: "Sample Tree & Land Clearing",
+        tier: "basic",
+        city: "Hocking Hills Area",
+        services: ["clearing", "tree", "mulching", "cleanup"],
+        serviceLabels: ["Tree Work", "Brush Clearing", "Forestry Mulching", "Cleanup"],
+        bestFor: "Land clearing, driveway opening, view clearing, and property cleanup.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: false,
+        accepting: true,
+        verifiedNote: "Basic listing example"
+      },
+      {
+        name: "Sample Cabin Maintenance Pro",
+        tier: "pro",
+        city: "Hocking Hills Cabin Market",
+        services: ["maintenance", "cleaning", "hot tub", "firewood", "handyman"],
+        serviceLabels: ["Cabin Cleaning", "Hot Tubs", "Firewood", "Handyman"],
+        bestFor: "Short-term rental owners, cabin maintenance, turnovers, and seasonal service needs.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: false,
+        accepting: true,
+        verifiedNote: "Pro profile example"
+      },
+      {
+        name: "Sample Home Service Electrician",
+        tier: "basic",
+        city: "Logan / Lancaster / Surrounding",
+        services: ["home", "electric", "garage", "hot tub"],
+        serviceLabels: ["Electrical", "Garage Wiring", "Hot Tub Circuits", "Home Repairs"],
+        bestFor: "Electrical repairs, garage wiring, rural property upgrades, and service calls.",
+        phone: "Add phone",
+        profileUrl: "#",
+        hasVideo: false,
+        accepting: true,
+        verifiedNote: "Basic listing example"
+      }
+    ];
+
+    const tierLabels = {
+      spotlight: "Category Spotlight",
+      featured: "Featured Local Partner",
+      pro: "Pro Profile",
+      basic: "Basic Listing"
+    };
+
+    const tierClass = {
+      spotlight: "new",
+      featured: "featured",
+      pro: "pro",
+      basic: "basic"
+    };
+
+    function getTierWeight(tier) {
+      const weights = { spotlight: 4, featured: 3, pro: 2, basic: 1 };
+      return weights[tier] || 0;
+    }
+
+    function normalize(text) {
+      return (text || "").toString().toLowerCase().trim();
+    }
+
+    function contractorMatchesCategory(contractor, category) {
+      if (category === "all") return true;
+      return contractor.services.some(service => normalize(service).includes(category) || category.includes(normalize(service)));
+    }
+
+    function renderFeaturedProfiles() {
+      const container = document.getElementById("featuredProfiles");
+      const featured = contractors
+        .filter(c => ["spotlight", "featured"].includes(c.tier))
+        .sort((a, b) => getTierWeight(b.tier) - getTierWeight(a.tier));
+
+      container.innerHTML = featured.map(c => `
+        <article class="profile-card">
+          <div class="profile-media">
+            <div>
+              <div class="play">${c.hasVideo ? "▶" : "★"}</div>
+              <strong>${c.hasVideo ? "Video profile ready" : "Profile media placeholder"}</strong>
+            </div>
+          </div>
+
+          <div class="profile-body">
+            <div class="badge-row">
+              <span class="badge ${tierClass[c.tier]}">${tierLabels[c.tier]}</span>
+              ${c.accepting ? '<span class="badge pro">Accepting leads</span>' : ""}
+            </div>
+
+            <div>
+              <h3>${c.name}</h3>
+              <p>${c.city}</p>
+            </div>
+
+            <p>${c.bestFor}</p>
+
+            <div class="service-tags">
+              ${c.serviceLabels.map(label => `<span>${label}</span>`).join("")}
+            </div>
+
+            <p class="note">${c.verifiedNote}</p>
+
+            <div class="profile-actions">
+              <a class="btn btn-primary" href="#match">Request match</a>
+              <a class="btn btn-secondary" href="${c.profileUrl}">View profile</a>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderDirectory() {
+      const list = document.getElementById("directoryList");
+      const search = normalize(document.getElementById("directorySearch").value);
+      const category = document.getElementById("categoryFilter").value;
+      const tier = document.getElementById("tierFilter").value;
+
+      const filtered = contractors
+        .filter(c => contractorMatchesCategory(c, category))
+        .filter(c => tier === "all" || c.tier === tier)
+        .filter(c => {
+          if (!search) return true;
+          const haystack = normalize([
+            c.name,
+            c.city,
+            c.bestFor,
+            c.serviceLabels.join(" "),
+            c.services.join(" "),
+            c.verifiedNote
+          ].join(" "));
+          return haystack.includes(search);
+        })
+        .sort((a, b) => getTierWeight(b.tier) - getTierWeight(a.tier) || a.name.localeCompare(b.name));
+
+      if (!filtered.length) {
+        list.innerHTML = `
+          <div class="directory-item">
+            <div>
+              <h3>No matching providers yet</h3>
+              <div class="directory-meta">Try a different category or search term.</div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = filtered.map(c => `
+        <article class="directory-item">
+          <div>
+            <div class="badge-row">
+              <span class="badge ${tierClass[c.tier]}">${tierLabels[c.tier]}</span>
+              ${c.hasVideo ? '<span class="badge featured">Video</span>' : ""}
+            </div>
+
+            <h3>${c.name}</h3>
+            <div class="directory-meta">${c.city} · ${c.phone}</div>
+            <p>${c.bestFor}</p>
+
+            <div class="service-tags" style="margin-top: 10px;">
+              ${c.serviceLabels.map(label => `<span>${label}</span>`).join("")}
+            </div>
+          </div>
+
+          <div>
+            <a class="btn btn-secondary" href="#match">Match this project</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function getRecommendedContractors(projectType, matchType, description) {
+      const text = normalize(description);
+      let categories = [projectType];
+
+      if (matchType === "lineup" || matchType === "planning" || projectType === "garage") {
+        if (projectType === "garage") {
+          categories = ["excavation", "driveway", "septic", "concrete", "garage", "home"];
+        } else if (projectType === "not-sure") {
+          categories = ["excavation", "driveway", "septic", "concrete"];
+        }
+      }
+
+      if (text.includes("garage") || text.includes("pole barn") || text.includes("living space")) {
+        categories = Array.from(new Set([...categories, "excavation", "driveway", "septic", "concrete", "garage", "home"]));
+      }
+
+      if (text.includes("washout") || text.includes("culvert") || text.includes("ditch") || text.includes("water")) {
+        categories = Array.from(new Set([...categories, "drainage", "driveway", "excavation"]));
+      }
+
+      const matches = contractors
+        .map(c => {
+          let score = 0;
+
+          categories.forEach(category => {
+            if (contractorMatchesCategory(c, category)) score += 30;
+          });
+
+          if (c.accepting) score += 10;
+          if (c.hasVideo) score += 8;
+          score += getTierWeight(c.tier) * 4;
+
+          return { ...c, score };
+        })
+        .filter(c => c.score > 0)
+        .sort((a, b) => b.score - a.score);
+
+      if (matchType === "single") return matches.slice(0, 2);
+      return matches.slice(0, 5);
+    }
+
+    function buildEmailBody(data, matches, formType) {
+      const matchNames = matches.map(m => `- ${m.name} (${tierLabels[m.tier]})`).join("%0D%0A");
+
+      if (formType === "contractor") {
+        return [
+          "New contractor signup request",
+          "",
+          `Business: ${data.businessName}`,
+          `Contact: ${data.ownerName}`,
+          `Phone: ${data.partnerPhone || "Not provided"}`,
+          `Email: ${data.partnerEmail}`,
+          "",
+          "Services / notes:",
+          data.partnerServices
+        ].join("%0D%0A");
+      }
+
+      return [
+        "New project match request",
+        "",
+        `Name: ${data.name}`,
+        `Phone: ${data.phone || "Not provided"}`,
+        `Email: ${data.email}`,
+        `Location: ${data.location}`,
+        `Project type: ${data.projectType}`,
+        `Match type: ${data.matchType}`,
+        `Timeline: ${data.timeline || "Not provided"}`,
+        `Budget: ${data.budget || "Not provided"}`,
+        "",
+        "Description:",
+        data.description,
+        "",
+        "Initial match preview:",
+        matchNames
+      ].join("%0D%0A");
+    }
+
+    function formDataToObject(form) {
+      return Object.fromEntries(new FormData(form).entries());
+    }
+
+    function setupMatchForm() {
+      const form = document.getElementById("matchForm");
+      const result = document.getElementById("matchResult");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const data = formDataToObject(form);
+        const matches = getRecommendedContractors(data.projectType, data.matchType, data.description);
+        const emailBody = buildEmailBody(data, matches, "project");
+        const mailto = `mailto:${CONFIG.notificationEmail}?subject=New Hocking Hills Property Pros Match Request&body=${emailBody}`;
+
+        result.classList.add("show");
+        result.innerHTML = `
+          <h3>Your project match request is ready.</h3>
+          <p>
+            In the live version, this would be sent directly to you through a form backend.
+            For now, use the email button below to send the request.
+          </p>
+
+          <div class="match-list">
+            ${matches.map(m => `
+              <div class="match-mini">
+                <strong>${m.name}</strong><br />
+                <span class="muted">${tierLabels[m.tier]} · ${m.city}</span><br />
+                <span>${m.bestFor}</span>
+              </div>
+            `).join("")}
+          </div>
+
+          <div style="margin-top: 14px;">
+            <a class="btn btn-primary" href="${mailto}">Send request by email</a>
+          </div>
+
+          <p class="note">
+            This preview is only based on sample profile data. Replace the sample providers with your real contractor database.
+          </p>
+        `;
+      });
+    }
+
+    function setupPartnerForm() {
+      const form = document.getElementById("partnerForm");
+      const result = document.getElementById("partnerResult");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const data = formDataToObject(form);
+        const emailBody = buildEmailBody(data, [], "contractor");
+        const mailto = `mailto:${CONFIG.notificationEmail}?subject=New Contractor Signup Request&body=${emailBody}`;
+
+        result.classList.add("show");
+        result.innerHTML = `
+          <h3>Contractor signup preview is ready.</h3>
+          <p>
+            In the live version, this would go into your contractor database.
+            For now, use the email button below.
+          </p>
+          <a class="btn btn-primary" href="${mailto}">Send contractor signup by email</a>
+        `;
+      });
+    }
+
+    function setupCategoryShortcuts() {
+      document.querySelectorAll("[data-project-shortcut]").forEach(card => {
+        card.addEventListener("click", () => {
+          const value = card.getAttribute("data-project-shortcut");
+          setTimeout(() => {
+            const select = document.getElementById("projectType");
+            if (select) {
+              select.value = value;
+            }
+          }, 50);
+        });
+      });
+    }
+
+    function setupDirectoryTools() {
+      ["directorySearch", "categoryFilter", "tierFilter"].forEach(id => {
+        document.getElementById(id).addEventListener("input", renderDirectory);
+        document.getElementById(id).addEventListener("change", renderDirectory);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderFeaturedProfiles();
+      renderDirectory();
+      setupMatchForm();
+      setupPartnerForm();
+      setupCategoryShortcuts();
+      setupDirectoryTools();
+    });
+  </script>
+</body>
+</html>
